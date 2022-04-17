@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-// API CALL
+// const instance = require("../Config/nomics");
+
+//API CALL
 const axios = require("axios");
 const URL = "https://api.nomics.com/v1/";
 const params = new URLSearchParams([
@@ -11,7 +13,7 @@ const params = new URLSearchParams([
 router.get("/", (req, res) => {
   if (res.status(200)) {
     axios
-      .get(URL + "currencies/ticker?", { params })
+      .get(URL + "/currencies/ticker?" + params)
       .then((resp) => {
         res.status(200).json(resp.data);
       })

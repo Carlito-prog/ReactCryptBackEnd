@@ -10,7 +10,11 @@ userSchema.methods = {
 
 userSchema.pre("save", async function () {
   const salt = bcrypt.genSaltSync(config.saltrounds);
-  await bcrypt(this.password, salt).then((hash) => {
-    this.password = hash;
-  });
+  await bcrypt(this.password, salt)
+    .then((hash) => {
+      this.password = hash;
+    })
+    .catch((err) => {
+      console.log(`${err}, failed pre save user`);
+    });
 });

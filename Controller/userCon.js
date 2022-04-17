@@ -42,6 +42,7 @@ router.post("/register", async (req, res) => {
     console.log(token);
 
     // save in cookies
+    res.cookie(config.cookie, token);
   } catch (err) {}
 });
 
