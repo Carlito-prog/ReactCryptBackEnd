@@ -6,9 +6,7 @@ const router = express.Router();
 //API CALL
 const axios = require("axios");
 const URL = "https://api.nomics.com/v1/";
-const params = new URLSearchParams([
-  ["key", "m_45c89584df8f513dc2aa1ef76d27d3a34a0687a1"],
-]);
+const params = new URLSearchParams([["key", `${process.env.NOMICS_API_KEY}`]]);
 
 router.get("/", (req, res) => {
   if (res.status(200)) {

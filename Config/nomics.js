@@ -1,14 +1,14 @@
 const axios = require("axios");
+require("dotenv").config();
 
 const instance = axios.create({
   baseURl: "https://api.nomics.com/v1",
   headers: {
-    timeout: 5000
+    timeout: 5000,
   },
   params: {
-    key: "m_45c89584df8f513dc2aa1ef76d27d3a34a0687a1"
-  }
-  
+    key: `${process.env.NOMICS_API_KEY}`,
+  },
 });
 
 module.exports = instance;

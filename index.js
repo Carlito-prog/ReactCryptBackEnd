@@ -3,6 +3,7 @@ const formData = require("express-form-data");
 const express = require("express");
 const cors = require("cors")();
 const cookieParser = require("cookie-parser");
+const Alpaca = require("./Config/alpaca");
 
 // FOR PORT
 const config = require("./Config");
